@@ -33,4 +33,11 @@
     text-stroke: 1px var(--color-gray);
     -webkit-text-stroke: 1px var(--color-gray);
   }
+
+  &.centered::after{
+    top: -0.40em;
+    left: 50%;
+    translate: -50%;
+  }
+
 }

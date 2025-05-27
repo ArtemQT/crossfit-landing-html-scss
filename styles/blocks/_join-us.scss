@@ -1,0 +1,154 @@
+.join-us{
+  padding-bottom: 150px;
+
+  @include mobile{
+    padding-bottom: 75px;
+  }
+
+  &__banner{
+    padding: 150px 30px;
+    background-image: url("../../images/join-us-bg.png");
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: -1;
+
+    @include laptop{
+      padding-block: 75px;
+    }
+
+    @include tablet{
+      padding-block: 30px;
+    }
+
+  }
+
+  &__video{
+
+    @include desktop{
+      max-width: 80%;
+      height: auto;
+    }
+
+    &-button{
+      @include fluid-text(12, 20);
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: clamp(50px, 10.41vw ,200px);
+      aspect-ratio: 1;
+
+      background-color: transparent;
+      border-radius: 50%;
+      border: var(--border-light);
+
+      color: var(--color-light);
+      font-weight: 700;
+    }
+  }
+
+  &__title{
+    @include fluid-text(64, 180);
+
+    color: var(--color-light);
+
+    text-align: center;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+
+    margin-top: -0.4em;
+
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.14em;
+
+    margin-bottom: 130px;
+
+    &::after{
+      content: "";
+
+      display: block;
+      width: clamp(50px, 6.77vw ,130px);
+      aspect-ratio: 1;
+
+      background: url("../../icons/arrow-top-right.svg") center/cover no-repeat;
+
+    }
+
+    @include desktop{
+      margin-bottom: 65px;
+    }
+  }
+
+  &__body{
+    z-index: -1;
+    //background-color: var(--color-dark-alt);
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-header{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+    }
+
+    &-body{
+      display: flex;
+      column-gap: 20px;
+
+      @include laptop{
+        flex-direction: column;
+        row-gap: 30px;
+      }
+    }
+
+    &-title{
+      @include fluid-text(24, 60);
+
+      color: var(--color-light);
+
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    &-description{
+      @include fluid-text(14, 20);
+
+      line-height: 1.65;
+      text-transform: uppercase;
+
+      margin-bottom: 60px;
+    }
+
+    &-input{
+      width: 400px;
+
+      @include mobile{
+        width: 300px;
+      }
+    }
+
+    &-button{
+      @include mobile{
+        align-self: center;
+      }
+    }
+  }
+}
