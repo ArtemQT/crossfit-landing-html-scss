@@ -1,20 +1,15 @@
 .join-us{
-  padding-bottom: 150px;
-
-  @include mobile{
-    padding-bottom: 75px;
-  }
+  background-color: var(--color-dark-alt);
 
   &__banner{
     padding: 150px 30px;
-    background-image: url("../../images/join-us-bg.png");
+    background: url("../../images/join-us-bg.png") center/cover no-repeat;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     position: relative;
-    z-index: -1;
 
     @include laptop{
       padding-block: 75px;
@@ -73,6 +68,7 @@
 
     margin-bottom: 130px;
 
+    position: relative;
     &::after{
       content: "";
 
@@ -91,7 +87,11 @@
 
   &__body{
     z-index: -1;
-    //background-color: var(--color-dark-alt);
+    padding-bottom: 150px;
+
+    @include mobile{
+      padding-bottom: 75px;
+    }
   }
 
   &__form{
@@ -146,7 +146,7 @@
     }
 
     &-button{
-      @include mobile{
+      @include laptop{
         align-self: center;
       }
     }
