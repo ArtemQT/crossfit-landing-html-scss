@@ -1,0 +1,29 @@
+.workouts{
+  position: relative;
+  background-color: var(--color-dark);
+  padding-block: 70px 120px;
+
+  @include mobile{
+    padding-block: 35px 60px;
+  }
+
+  &__list{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 60px;
+
+    @include desktop{
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mobile{
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  &__item{
+    padding-top: 80px;
+    background: url("../../icons/arrow-bottom-left.svg") 100% 0/ 80px no-repeat;
+  }
+}
