@@ -1,0 +1,44 @@
+body{
+  @include fluid-text(16, 18);
+
+  font-family: var(--font-family-base);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-gray-alt);
+  background-color: var(--color-dark);
+}
+
+.container{
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+a{
+  @include reset-link();
+}
+
+button{
+  //@include reset-button();
+  
+}
+
+a,
+button,
+input,
+textarea,
+svg, {
+  transition-duration: var(--transition-duration);
+}
+
+h1, .h1{
+  @include fluid-text(24, 360);
+}
+
+h2, .h2{
+  @include fluid-text(22, 180);
+}
+
+h3, .h3{
+  @include fluid-text(18, 40);
+}

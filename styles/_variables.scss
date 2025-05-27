@@ -1,0 +1,24 @@
+:root{
+  --color-light: #FFFFFF;
+  --color-dark: #000000;
+  --color-dark-alt: #131619;
+  --color-gray: #404040;
+  --color-gray-alt: #C4C4C4;
+
+  --border-light: 1px solid var(--color-light);
+  --border-dark: 1px solid var(--color-gray);
+  --border-radius: 30px;
+
+  --container-width: 1300px;
+  --container-padding-x: 20px;
+
+  --button-height: 54px;
+  --input-height: 54px;
+
+  --font-family-base: 'Heebo', sans-serif;
+  --font-family-accent: 'Yantramanav', sans-serif;
+
+  --transition-duration: 0.3s;
+
+  --header-height: 90px;
+}

@@ -1,0 +1,725 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not([fill=none],
+[fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not([stroke=none],
+[stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Heebo";
+  src: url("../fonts/Heebo-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Heebo";
+  src: url("../fonts/Heebo-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Yantramanav";
+  src: url("../fonts/Yantramanav-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-light: #FFFFFF;
+  --color-dark: #000000;
+  --color-dark-alt: #131619;
+  --color-gray: #404040;
+  --color-gray-alt: #C4C4C4;
+  --border-light: 1px solid var(--color-light);
+  --border-dark: 1px solid var(--color-gray);
+  --border-radius: 30px;
+  --container-width: 1300px;
+  --container-padding-x: 20px;
+  --button-height: 54px;
+  --input-height: 54px;
+  --font-family-base: "Heebo", sans-serif;
+  --font-family-accent: "Yantramanav", sans-serif;
+  --transition-duration: 0.3s;
+  --header-height: 90px;
+}
+
+body {
+  font-size: clamp(16px, 0.9375vw, 18px);
+  font-family: var(--font-family-base);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-gray-alt);
+  background-color: var(--color-dark);
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a,
+button,
+input,
+textarea,
+svg {
+  transition-duration: var(--transition-duration);
+}
+
+h1, .h1 {
+  font-size: clamp(24px, 18.75vw, 360px);
+}
+
+h2, .h2 {
+  font-size: clamp(22px, 9.375vw, 180px);
+}
+
+h3, .h3 {
+  font-size: clamp(18px, 2.0833333333vw, 40px);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-visible {
+    display: none !important;
+  }
+}
+
+.button {
+  font-size: clamp(12px, 0.7291666667vw, 14px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  border: var(--border-light);
+  border-radius: var(--border-radius);
+  color: var(--color-light);
+  font-weight: 700;
+  line-height: 2;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  padding-inline: 30px 80px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  overflow: hidden;
+}
+.button::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: inherit;
+  background: url("../../icons/arrow-button.svg") center/70% no-repeat;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition-duration: var(--transition-duration);
+  z-index: -1;
+  background-color: var(--color-gray);
+}
+@media (hover: hover) {
+  .button:hover::before {
+    left: 0;
+  }
+}
+@media (hover: none) {
+  .button:active::before {
+    left: 0;
+  }
+}
+
+.title {
+  font-size: clamp(18px, 2.0833333333vw, 40px);
+  color: var(--color-light);
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: clamp(14px, 0.8333333333vw, 16px);
+  line-height: 1.75;
+  letter-spacing: 0.8px;
+}
+
+.backdrop-title {
+  position: relative;
+}
+.backdrop-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(100% + 8px);
+  z-index: 1;
+  display: block;
+  width: 26px;
+  aspect-ratio: 1;
+  background: url("../../icons/plus.svg") center/cover no-repeat;
+}
+.backdrop-title::after {
+  content: attr(data-backdrop-text);
+  font-family: var(--font-family-accent);
+  font-size: 2.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: transparent;
+  position: absolute;
+  top: -0.5em;
+  left: -0.65em;
+  z-index: -1;
+  text-stroke: 1px var(--color-gray);
+  -webkit-text-stroke: 1px var(--color-gray);
+}
+
+.burger-button {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: transparent;
+  border: var(--border-light);
+  position: relative;
+}
+.burger-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px var(--color-light), 0 -8px var(--color-light);
+}
+
+.navigation-dialog {
+  height: 100%;
+  width: 100%;
+  padding: 15px 30px;
+  margin: 0;
+  border: none;
+  background-color: var(--color-dark-alt);
+  color: var(--color-light);
+}
+.navigation-dialog:modal {
+  max-width: 100%;
+  max-height: 100%;
+}
+.navigation-dialog .navigation-dialog__form {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 45px;
+}
+.navigation-dialog__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 330px;
+}
+.navigation-dialog__link {
+  color: var(--color-light);
+  font-weight: 700;
+}
+.navigation-dialog__button {
+  width: 50px;
+  aspect-ratio: 1;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  border: var(--border-light);
+  position: relative;
+}
+.navigation-dialog__button::before, .navigation-dialog__button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 2px;
+  background-color: var(--color-light);
+}
+.navigation-dialog__button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.navigation-dialog__button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  padding-inline: 32px;
+  border-bottom: 1px solid var(--color-light);
+  min-height: var(--header-height);
+  background-color: var(--color-dark-alt);
+}
+@media (max-width: 1023px) {
+  .header {
+    --header-height: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    --header-height: 70px;
+  }
+}
+.header__navigation-list {
+  display: flex;
+  align-items: center;
+  column-gap: 60px;
+}
+@media (max-width: 1023px) {
+  .header__navigation-list {
+    column-gap: 30px;
+  }
+}
+.header__navigation-link {
+  color: var(--color-light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  height: var(--header-height);
+  display: inline-flex;
+  align-items: center;
+  column-gap: 7px;
+  position: relative;
+}
+.header__navigation-link.is-active::after {
+  content: "";
+  display: block;
+  width: 5px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color-light);
+}
+.header__navigation-link::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: currentColor;
+  width: 0;
+  height: 2px;
+  transition-duration: var(--transition-duration);
+}
+@media (hover: hover) {
+  .header__navigation-link:hover::before {
+    width: 100%;
+  }
+}
+@media (hover: none) {
+  .header__navigation-link:active::before {
+    width: 100%;
+  }
+}
+.header__button {
+  background-color: transparent;
+  border: none;
+  font-size: clamp(11px, 0.6770833333vw, 13px);
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  height: 38px;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  padding-inline: 26px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+@media (hover: hover) {
+  .header__button:hover {
+    background-color: var(--color-dark);
+    border-color: var(--color-light);
+    color: var(--color-light);
+  }
+}
+@media (hover: none) {
+  .header__button:active {
+    background-color: var(--color-dark);
+    border-color: var(--color-light);
+    color: var(--color-light);
+  }
+}
+
+.pagination__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+}
+.pagination__button {
+  width: 15px;
+  aspect-ratio: 1;
+  background-color: transparent;
+  border: var(--border-light);
+  border-radius: 50%;
+}
+.pagination__button.is-active {
+  background-color: var(--color-light);
+}
+@media (max-width: 767px) {
+  .pagination__button {
+    width: 7px;
+    aspect-ratio: 1;
+  }
+}
+
+.banner {
+  background-color: var(--color-dark-alt);
+  color: var(--color-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 0 70px 35px 70px;
+  min-height: calc(100vh - var(--header-height));
+}
+@media (max-width: 767px) {
+  .banner {
+    justify-content: center;
+    row-gap: 30px;
+    padding: 20px 20px 10px 20px;
+  }
+}
+.banner__description {
+  font-size: clamp(14px, 1.5625vw, 30px);
+  font-weight: 700;
+  line-height: 1.25;
+  display: flex;
+  align-items: end;
+}
+.banner__description::before {
+  content: "";
+  display: block;
+  width: clamp(60px, 10.1vw, 194px);
+  aspect-ratio: 1;
+  background: url("../../icons/arrow-bottom-right.svg") center/cover no-repeat;
+  margin-right: 30px;
+}
+@media (max-width: 767px) {
+  .banner__description::before {
+    margin-right: 15px;
+  }
+}
+.banner__title {
+  font-size: clamp(30px, 18.75vw, 360px);
+  line-height: 1;
+}
+
+.motivation-card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: clamp(30px, 10.4vw, 200px);
+}
+@media (max-width: 767px) {
+  .motivation-card {
+    flex-direction: column;
+    row-gap: 50px;
+  }
+}
+.motivation-card--reversed {
+  flex-direction: row-reverse;
+}
+@media (max-width: 767px) {
+  .motivation-card--reversed {
+    flex-direction: column;
+  }
+}
+.motivation-card__body {
+  padding-left: 35px;
+}
+@media (max-width: 767px) {
+  .motivation-card__body {
+    order: 2;
+  }
+}
+.motivation-card__title {
+  margin-bottom: 15px;
+  z-index: 1;
+}
+.motivation-card__description {
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+@media (max-width: 1023px) {
+  .motivation-card__description {
+    max-width: 300px;
+  }
+}
+.motivation-card__img {
+  margin-block: -60px;
+}
+@media (max-width: 1890px) {
+  .motivation-card__img {
+    margin-block: -20px;
+  }
+}
+@media (max-width: 1280px) {
+  .motivation-card__img {
+    max-width: 35%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+@media (max-width: 767px) {
+  .motivation-card__img {
+    max-width: 250px;
+    margin-block: 0;
+    order: 1;
+  }
+}
+
+.motivation__item:nth-child(2n+1) {
+  background-color: var(--color-dark);
+}
+.motivation__item:nth-child(2n) {
+  background-color: var(--color-dark-alt);
+}
+@media (max-width: 767px) {
+  .motivation__item {
+    padding-block: 30px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,17 @@
+.motivation{
+
+  &__item{
+
+    &:nth-child(2n + 1){
+      background-color: var(--color-dark);
+    }
+
+    &:nth-child(2n){
+      background-color: var(--color-dark-alt);
+    }
+
+    @include mobile{
+      padding-block: 30px;
+    }
+  }
+}

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="icons/browser-icon.svg">
+
+    <title>Kropp Fitness</title>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__logo">
+            <img src="icons/logo.svg" alt="Kropp Fitness" class="header__logo-img"
+                 width="135"
+                 height="25"
+                 loading="lazy"
+            />
+        </a>
+
+        <nav class="header__navigation mobile-hidden">
+            <ul class="header__navigation-list">
+                <li class="header__navigation-item">
+                    <a href="" class="header__navigation-link is-active">Home</a>
+                </li>
+                <li class="header__navigation-item">
+                    <a href="" class="header__navigation-link">Pages</a>
+                </li>
+                <li class="header__navigation-item">
+                    <a href="" class="header__navigation-link">Portfolio</a>
+                </li>
+                <li class="header__navigation-item">
+                    <a href="" class="header__navigation-link">Blog</a>
+                </li>
+                <li class="header__navigation-item">
+                    <a href="" class="header__navigation-link">Shop</a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="header__button mobile-hidden"
+                type="button">
+            Book Now
+        </button>
+
+        <button onclick="modalDialog.showModal()"
+                class="header__burger-button burger-button mobile-visible"
+                type="button">
+        </button>
+    </header>
+
+    <main class="main">
+        <h1 class="visually-hidden">Kropp Fitness Crossfit</h1>
+
+        <section class="section">
+            <h2 class="visually-hidden">Crossfit</h2>
+            <div class="banner">
+                <div class="banner__content">
+                    <div class="banner__description">
+                        New event<br>
+                        coming up / <time datetime="06-07">june 7</time> - <time datetime="06-07">13</time>
+                    </div>
+                    <h3 class="banner__title">
+                        Crossfit
+                    </h3>
+                </div>
+                <div class="banner__pagination pagination">
+                    <ul class="pagination__list">
+                        <li class="pagination__item">
+                            <button class="pagination__button is-active" type="button"></button>
+                        </li>
+                        <li class="pagination__item">
+                            <button class="pagination__button" type="button"></button>
+                        </li>
+                        <li class="pagination__item">
+                            <button class="pagination__button" type="button"></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="visually-hidden">Motivation</h2>
+            <div class="motivation">
+                <ul class="motivation__list">
+                    <li class="motivation__item">
+                        <article class="motivation-card container">
+                            <div class="motivation-card__body">
+                                <h3 class="motivation-card__title title backdrop-title" data-backdrop-text="strong">
+                                    Be you, just stronger!</br>
+                                    Power is in you
+                                </h3>
+                                <p class="motivation-card__description description">
+                                    Unum solum justo ex ius. Pro cu probo laboramus eius insolens euripidis te eos, ut agam tota.
+                                </p>
+                                <a class="motivation-card__button button">
+                                    View more
+                                </a>
+                            </div>
+                            <img src="images/motivation/1.jpg" alt="" class="motivation-card__img"
+                                 width="520"
+                                 height="760"
+                                 loading="lazy"
+                            />
+                        </article>
+                    </li>
+                    <li class="motivation__item">
+                        <article class="motivation-card motivation-card--reversed container">
+                            <div class="motivation-card__body">
+                                <h3 class="motivation-card__title title backdrop-title" data-backdrop-text="start">
+                                    Today is the best </br>
+                                    day to start!
+                                </h3>
+                                <p class="motivation-card__description description">
+                                    Sed abhorreant constituam consectetuer eu. At mei clita deserunt, his movet molestie nemore.
+                                </p>
+                                <a class="motivation-card__button button">
+                                    View more
+                                </a>
+                            </div>
+                            <img src="images/motivation/2.jpg" alt="" class="motivation-card__img"
+                                 width="520"
+                                 height="760"
+                                 loading="lazy"
+                            />
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="visually-hidden">Motivation</h2>
+            <div class="workouts">
+                <ul class="workouts__list">
+                    <li class="workouts__item">
+                        <article class="workout-card">
+                            <img src="" alt="" class="workout-card__img"
+                                 width="140"
+                                 height="150"
+                                 loading="lazy"
+                            />
+                            <h3 class="workout-card__tite"></h3>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"></footer>
+
+    <dialog id="modalDialog" class="navigation-dialog">
+        <form action="" method="dialog" class="navigation-dialog__form">
+            <button class="navigation-dialog__button"
+                    type="submit">
+                <span class="visually-hidden">Close Navigation Menu</span>
+            </button>
+        </form>
+        <div class="navigation-dialog__body">
+            <ul class="navigation-dialog__list">
+                <li class="navigation-dialog__item">
+                    <a href="" class="navigation-dialog__link">Home</a>
+                </li>
+                <li class="navigation-dialog__item">
+                    <a href="" class="navigation-dialog__link">Pages</a>
+                </li>
+                <li class="navigation-dialog__item">
+                    <a href="" class="navigation-dialog__link">Portfolio</a>
+                </li>
+                <li class="navigation-dialog__item">
+                    <a href="" class="navigation-dialog__link">Blog</a>
+                </li>
+                <li class="navigation-dialog__item">
+                    <a href="" class="navigation-dialog__link">Shop</a>
+                </li>
+            </ul>
+        </div>
+    </dialog>
+</body>
+</html>

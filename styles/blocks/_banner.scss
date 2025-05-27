@@ -1,0 +1,50 @@
+.banner{
+  background-color: var(--color-dark-alt);
+  color: var(--color-light);
+  font-weight: 700;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  padding: 0 70px 35px 70px;
+  min-height: calc(100vh - var(--header-height));
+
+  @include mobile{
+    justify-content: center;
+    row-gap: 30px;
+    padding: 20px 20px 10px 20px;
+  }
+
+  &__description{
+    @include fluid-text(14, 30);
+
+    font-weight: 700;
+    line-height: 1.25;
+
+    display: flex;
+    align-items: end;
+
+    &::before{
+      content: '';
+
+      display: block;
+      width: clamp(60px, 10.1vw, 194px);
+      aspect-ratio: 1;
+
+      background: url('../../icons/arrow-bottom-right.svg') center/cover no-repeat;
+
+      margin-right: 30px;
+
+      @include mobile{
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &__title{
+    @include fluid-text(30, 360);
+    line-height: 1
+  }
+}

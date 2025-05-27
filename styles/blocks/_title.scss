@@ -1,0 +1,8 @@
+.title{
+  @include fluid-text(18, 40);
+
+  color: var(--color-light);
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}

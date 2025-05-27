@@ -1,0 +1,63 @@
+.motivation-card{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: clamp(30px, 10.4vw, 200px);
+
+  @include mobile{
+    flex-direction: column;
+    row-gap: 50px;
+  }
+
+  &--reversed{
+    flex-direction: row-reverse;
+
+    @include mobile{
+      flex-direction: column;
+    }
+  }
+
+  &__body{
+    padding-left: 35px;
+
+    @include mobile{
+      order: 2;
+    }
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    z-index: 1;
+
+  }
+
+  &__description {
+    max-width: 400px;
+    margin-bottom: 40px;
+
+    @include tablet{
+      max-width: 300px;
+    }
+  }
+
+  &__img{
+    margin-block: -60px;
+
+    @media (max-width: 1890px){
+      margin-block: -20px;
+    }
+
+    @include laptop{
+      max-width: 35%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @include mobile{
+      max-width: 250px;
+
+      margin-block: 0;
+      order: 1;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@mixin fluid-text($min, $max){
+  font-size: clamp(#{$min}px, #{$max / 1920 * 100}vw , #{$max}px);
+}
+
+@mixin abs-center(){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center($isInline: false){
+  @if ($isInline){
+    display: inline-flex;
+  } @else{
+    display: flex;
+  }
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin square($size){
+  width: #{$size}px;
+  aspect-ratio: 1;
+}
+
+@mixin reset-button(){
+  background-color: transparent;
+  border: none;
+}
+
+@mixin reset-link{
+  text-decoration: none;
+  color: inherit;
+}

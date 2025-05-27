@@ -1,0 +1,24 @@
+@import
+  'normalize',
+  'fonts',
+  'variables',
+  'mixins',
+  'globals',
+  'media',
+  'utils';
+
+@import
+  'blocks/button',
+  'blocks/title',
+  'blocks/description',
+  'blocks/backdrop-title',
+
+  'blocks/burger-button',
+  'blocks/navigation-dialog',
+  'blocks/header',
+
+  'blocks/pagination',
+  'blocks/banner',
+
+  'blocks/motivation-card',
+  'blocks/motivation';

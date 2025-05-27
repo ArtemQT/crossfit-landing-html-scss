@@ -1,0 +1,25 @@
+.pagination{
+
+  &__list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+  }
+
+  &__button{
+    @include square(15);
+
+    background-color: transparent;
+    border: var(--border-light);
+    border-radius: 50%;
+
+    &.is-active{
+      background-color: var(--color-light);
+    }
+
+    @include mobile{
+      @include square(7);
+    }
+  }
+}

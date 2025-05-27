@@ -1,0 +1,66 @@
+.navigation-dialog{
+
+  height: 100%;
+  width: 100%;
+  padding: 15px 30px;
+  margin: 0;
+  border: none;
+
+  background-color: var(--color-dark-alt);
+  color: var(--color-light);
+
+  &:modal{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .navigation-dialog__form{
+    display: flex;
+    justify-content: end;
+
+    margin-bottom: 45px;
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 330px;
+  }
+
+  &__link{
+    color: var(--color-light);
+    font-weight: 700;
+  }
+
+  &__button{
+    @include square(50);
+    @include reset-button();
+
+    border-radius: 50%;
+    background-color: transparent;
+    border: var(--border-light);
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+
+      @include abs-center();
+
+      width: 60%;
+      height: 2px;
+      background-color: var(--color-light);
+    }
+
+    &::before{
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after{
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
