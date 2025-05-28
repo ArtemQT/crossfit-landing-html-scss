@@ -12,6 +12,26 @@
 
   &:focus{
     outline: none;
-    border: 1px solid var(--color-light);
+    border: var(--color-light);
   }
+
+  &::placeholder{
+    color: var(--color-gray-alt);
+  }
+}
+
+select.input:invalid{
+  color: var(--color-gray-alt);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

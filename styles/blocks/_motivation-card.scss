@@ -29,6 +29,10 @@
     margin-bottom: 15px;
     z-index: 1;
 
+    @include mobile{
+      text-align: center;
+      display: inline-block;
+    }
   }
 
   &__description {

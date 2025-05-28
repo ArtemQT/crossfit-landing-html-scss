@@ -389,6 +389,13 @@ svg {
   text-stroke: 1px var(--color-gray);
   -webkit-text-stroke: 1px var(--color-gray);
 }
+@media (max-width: 767px) {
+  .backdrop-title::after {
+    top: -0.4em;
+    left: 50%;
+    translate: -50%;
+  }
+}
 .backdrop-title.centered::after {
   top: -0.4em;
   left: 50%;
@@ -415,7 +422,26 @@ svg {
 }
 .input:focus {
   outline: none;
-  border: 1px solid var(--color-light);
+  border: var(--color-light);
+}
+.input::placeholder {
+  color: var(--color-gray-alt);
+}
+
+select.input:invalid {
+  color: var(--color-gray-alt);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .burger-button {
@@ -694,6 +720,12 @@ svg {
 .motivation-card__title {
   margin-bottom: 15px;
   z-index: 1;
+}
+@media (max-width: 767px) {
+  .motivation-card__title {
+    text-align: center;
+    display: inline-block;
+  }
 }
 .motivation-card__description {
   max-width: 400px;
@@ -1002,6 +1034,168 @@ svg {
 @media (max-width: 1280px) {
   .family__body-img {
     height: 300px;
+  }
+}
+
+.calculation {
+  background-color: var(--color-dark-alt);
+  padding-block: 146px;
+}
+@media (max-width: 1280px) {
+  .calculation {
+    padding-block: 100px;
+  }
+}
+.calculation__inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+@media (max-width: 1440px) {
+  .calculation__inner {
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 1280px) {
+  .calculation__inner {
+    flex-direction: column;
+    row-gap: 140px;
+  }
+}
+@media (max-width: 767px) {
+  .calculation__inner {
+    row-gap: 40px;
+  }
+}
+.calculation__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  max-width: 630px;
+}
+@media (max-width: 767px) {
+  .calculation__body {
+    align-items: center;
+  }
+}
+.calculation__title {
+  z-index: 1;
+}
+.calculation__description {
+  max-width: 386px;
+}
+.calculation__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+@media (max-width: 767px) {
+  .calculation__form {
+    width: 100%;
+  }
+}
+.calculation__form-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
+  row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.calculation__form-input--wide {
+  grid-column: 1/3;
+}
+@media (max-width: 767px) {
+  .calculation__form-input {
+    width: 100%;
+  }
+}
+.calculation__form-button {
+  align-self: start;
+}
+@media (max-width: 767px) {
+  .calculation__form-button {
+    align-self: center;
+  }
+}
+.calculation__table {
+  position: relative;
+  --colorBorderTable: #707070;
+  --borderTable: 1px solid var(--colorBorderTable);
+}
+.calculation__table th {
+  padding-block: 20px;
+  text-align: start;
+  color: var(--color-light);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.calculation__table :is(th, td):not(:first-child) {
+  padding-left: 30px;
+}
+.calculation__table :is(th, td) {
+  padding-right: 30px;
+}
+.calculation__table :is(th, td):not(:last-child) {
+  border-right: var(--borderTable);
+}
+.calculation__table tbody td {
+  border-top: var(--borderTable);
+}
+.calculation__table tbody tr:last-child td:first-child {
+  position: relative;
+}
+.calculation__table tbody tr:last-child td:first-child::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  width: 70%;
+  height: 1px;
+  background-color: var(--colorBorderTable);
+}
+.calculation__table td {
+  color: var(--color-gray-alt);
+  padding-block: 15px;
+}
+.calculation__table tfoot td {
+  padding-top: 35px;
+  padding-bottom: 0;
+}
+.calculation__table tfoot span {
+  font-weight: 700;
+  color: var(--color-light);
+}
+.calculation__table-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 610px;
+  width: 100%;
+  position: relative;
+}
+.calculation__table-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--color-dark);
+  border-radius: 50%;
+}
+@media (max-width: 1440px) {
+  .calculation__table-wrapper::before {
+    width: 90%;
+  }
+}
+@media (max-width: 767px) {
+  .calculation__table-wrapper::before {
+    display: none;
   }
 }
 

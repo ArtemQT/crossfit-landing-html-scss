@@ -32,6 +32,12 @@
 
     text-stroke: 1px var(--color-gray);
     -webkit-text-stroke: 1px var(--color-gray);
+
+    @include mobile{
+      top: -0.40em;
+      left: 50%;
+      translate: -50%;
+    }
   }
 
   &.centered::after{
@@ -39,5 +45,6 @@
     left: 50%;
     translate: -50%;
   }
+
 
 }
