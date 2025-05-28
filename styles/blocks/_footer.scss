@@ -1,0 +1,155 @@
+.footer{
+  --footerLogoWidth: 20.77%;
+
+  &__inner{
+    padding-top: 150px;
+
+    @include tablet{
+      padding-top: 75px;
+    }
+  }
+
+  &__body{
+    padding-bottom: 150px;
+    @include tablet{
+      padding-bottom: 50px;
+    }
+  }
+
+  &__extra{
+    background-color: var(--color-dark-alt);
+    padding-block: 15px;
+  }
+
+  & :where(&__header, &__body){
+    display: grid;
+    column-gap: 60px;
+  }
+
+  &__header{
+    grid-template-columns: var(--footerLogoWidth) auto;
+    margin-bottom: 60px;
+
+    @include tablet{
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+    }
+  }
+
+  &__body{
+    grid-template-columns: var(--footerLogoWidth) repeat(3, 1fr);
+
+    @include tablet{
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 30px;
+    }
+
+    @include mobile{
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__description{
+    @include fluid-text(14, 20);
+
+    color: var(--color-light);
+    text-transform: uppercase;
+  }
+
+  &__column{
+
+    &-title{
+      @include fluid-text(16, 22);
+
+      color: #FFFFFF;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+
+      &--has-arrow{
+        display: flex;
+        column-gap: 6px;
+      }
+      &--has-arrow::after{
+        content: '';
+        width: 16px;
+        aspect-ratio: 1;
+        background: url('../../icons/bottom-left-arrow.svg') center/contain no-repeat;
+      }
+    }
+
+  }
+
+  &__schedule:not(:last-child){
+    margin-bottom: 15px;
+  }
+
+  &__address{
+    margin-bottom: 35px;
+  }
+
+  &__input{
+    width: 300px;
+    border: var(--border-light);
+    padding-right: 70px;
+
+    &:focus{
+      border: var(--border-dark);
+    }
+  }
+
+  &__subscribe{
+
+    position: relative;
+    margin-bottom: 50px;
+    display: inline-block;
+    display: inline-block;
+    &-button{
+      @include reset-button();
+
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      height: 100%;
+      aspect-ratio: 1;
+
+      border: var(--border-light);
+      border-radius: 50%;
+
+      background: url("../../icons/arrow-button.svg") center/70% no-repeat;
+
+      @include hover{
+        background-color: var(--color-dark-alt);
+      }
+    }
+  }
+
+  &__socials{
+
+    &-list{
+      display: flex;
+      column-gap: 15px;
+    }
+
+    &-item{
+
+      & svg{
+        width: 25px;
+        aspect-ratio: 1;
+      }
+    }
+  }
+
+  &__copyright{
+    font-size: 16px;
+  }
+
+  &__logo{
+    &-img{
+      height: auto;
+    }
+  }
+
+}
